@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "authserver"
+version = "0.0.1"
+license = {file = "LICENSE.txt"}
+description = "My own auth server."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Brian Kariu", email = "waiganjo.brian@gmail.com"},
+]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.in"] }
+optional-dependencies.test = { file = ["requirements-test.txt"] }
+
+[tool.pip-tools]
+generate-hashes = true
