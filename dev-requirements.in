@@ -1,3 +1,4 @@
 -c requirements/requirements.txt
 pytest
 tox
+pip-tools

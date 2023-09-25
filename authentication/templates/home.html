@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block body %}
+<div>
     <h1>Home</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>Welcome!</p>
-    </form>
-</body>
-</html>
+    <p>Welcome!</p>
+</div>
+{% endblock %}
