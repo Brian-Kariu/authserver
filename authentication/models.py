@@ -7,6 +7,7 @@ from .managers import AuthUserManager
 from django.core.mail import EmailMessage
 from django.utils.translation import gettext_lazy as _
 
+
 class AuthUser(AbstractUser):
     id = models.UUIDField(
         primary_key=True,
@@ -31,15 +32,15 @@ class AuthUser(AbstractUser):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['guid']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["guid"]
 
     objects = AuthUserManager()
 
     def __str__(self) -> str:
         """Represent a user using their email."""
         return self.email
-    
+
     def email_user(self, subject: str, message: str, from_email: str = None, **kwargs: Any):
         """Send an email to this user."""
         email = EmailMessage(subject, message, from_email, recipient_list)
@@ -49,4 +50,3 @@ class AuthUser(AbstractUser):
         """User model options."""
 
         ordering = ("-updated", "-created")
-

@@ -16,4 +16,3 @@ RUN pip install -r requirements/requirements.txt
 EXPOSE 8000
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-

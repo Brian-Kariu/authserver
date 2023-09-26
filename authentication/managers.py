@@ -1,6 +1,7 @@
 from django.contrib.auth.models import BaseUserManager
 from django.db import models
 
+
 class AuthUserManager(BaseUserManager):
     """A custom user manager."""
 
@@ -20,7 +21,11 @@ class AuthUserManager(BaseUserManager):
         )
         user.set_password(password)
         user.save(using=self._db)
-        user.email_user(subject="Account Successfully created!", message="Your account has been created", from_email=email)
+        user.email_user(
+            subject="Account Successfully created!",
+            message="Your account has been created",
+            from_email=email,
+        )
         return user
 
     def create_superuser(
@@ -30,9 +35,9 @@ class AuthUserManager(BaseUserManager):
         **extra_fields,
     ):
         """Create and save a User with the given email, DOB and password."""
-        extra_fields.setdefault('is_superuser', True)
-        if extra_fields.get('is_superuser') is not True:
-            raise ValueError(_('Superuser must have is_superuser=True.'))
+        extra_fields.setdefault("is_superuser", True)
+        if extra_fields.get("is_superuser") is not True:
+            raise ValueError(_("Superuser must have is_superuser=True."))
         user = self.create_user(
             email=email,
             password=password,
