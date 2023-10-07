@@ -7,7 +7,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import AuthUserSerializer 
+from .serializers import AuthUserSerializer
 from .models import AuthUser
 
 
@@ -34,10 +34,10 @@ def user_login(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
+        user = AuthUser.objects.get(username=username)
         if user is not None:
             login(request, user)
-            return render(request, "home.html")
+            return redirect("/admin-dashboard/home")
         else:
             messages.error(request, "Invalid username or password")
 
@@ -47,6 +47,3 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("/login")
-
-def home(request):
-    return render(request, "home.html")

@@ -45,8 +45,6 @@ For this repo you need python 3.10 or higher.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Clone the repo
 
    ```sh
@@ -83,6 +81,13 @@ to maintain the library dependecies as such i use this commands to generate the 
     python mange.py migrate
     python manage.py runserver
     ```
+  
+In the case you want to run it in a dev container as in prod use this script to build
+```
+DOCKER_BUILDKIT=1 docker build --secret id=_env, src=./.env authserver .
+docker run authserver
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

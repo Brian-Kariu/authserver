@@ -11,8 +11,7 @@
     {% endblock %}
     {% load static %}
 </head>
-<body >
-
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' >
     <script src="https://unpkg.com/htmx.org@1.8.0"></script>
         <nav class="flex justify-between">
             <h2>Authserver</h2>

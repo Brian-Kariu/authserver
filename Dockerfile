@@ -11,8 +11,7 @@ COPY . /app/
 
 RUN chmod +x *.sh
 RUN pip install --upgrade pip
-RUN pip install pipenv
-RUN pipenv sync 
+RUN pip install .[dev] 
 
 EXPOSE 8000
 
