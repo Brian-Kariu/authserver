@@ -1,22 +1,31 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "wheel", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "authserver"
-version = "0.0.1"
-license = {file = "LICENSE.txt"}
-description = "My own auth server."
+description = "My own auth server.😋"
 readme = "README.md"
+license = {file = "LICENSE.txt"}
 requires-python = ">=3.10"
+dynamic = ["version"]
 authors = [
     {name = "Brian Kariu", email = "waiganjo.brian@gmail.com"},
 ]
-dynamic = ["dependencies", "optional-dependencies"]
+dependencies = [
+    "django",
+    "djangorestframework",
+    "djangorestframework-simplejwt",
+    "pre-commit",
+    "psycopg2-binary"
+]
 
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.in"] }
-optional-dependencies.test = { file = ["requirements-test.txt"] }
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pytest",
+    "tox"    
+]
 
-[tool.pip-tools]
-generate-hashes = true
+[tool.setuptools_scm]
+version_file = "_version.py"
