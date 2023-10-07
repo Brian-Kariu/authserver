@@ -93,7 +93,7 @@ features would be create,edit and delete permissions for user, social authentica
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Roadmap
+## Features
 - [x] Create a working jwt auth flow
 - [ ] Detailed user profile
 - [ ] Create user groups models for the different apps

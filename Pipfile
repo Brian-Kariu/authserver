@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+black = "*"
+pre-commit = "*"
+psycopg2-binary = "*"
+authserver = {file = "."}
+
+[dev-packages]
+pytest = "*"
+tox = "*"
+
+[requires]
+python_version = "3.10"
